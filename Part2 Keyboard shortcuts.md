@@ -12,7 +12,7 @@ Before turn back to be a ninja, remember the equivalent shortcuts in Windows.
 | Delete right               | `Delete`              | `Ctrl+d`            | `⌃d`             |
 | Head of line               | `Home`                | `Ctrl+a`, ahead     | `⌃a`             |
 | Tail of line               | `End`                 |                     | `Ctrl+e`, end    | `⌃e` |
-| Move cursor by words       | `Alt+←/→`             | -                   | -                |
+| Move cursor by words       | `Ctrl+←/→`            | -                   | -                |
 | Delete to the head of line | `Ctrl+Home`           | -                   | -                |
 | Delete a word              | `Ctrl+BackSpace`      | `Ctrl+w`            | `⌃w`             |
 
