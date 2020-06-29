@@ -26,11 +26,11 @@ Default:
 
 ### close panel
 
-PowerShell: `Ctrl + Shift+w`
+PowerShell: `Ctrl+Shift+w`
 
 Command Line Prompt: -
 
-WSL2 consoles: `Ctrl + D`
+WSL2 consoles: `Ctrl+D`
 
 ### move cursor between panels
 
