@@ -28,13 +28,13 @@ BTW, What does `yes` do
 
 `touch` creates a empty file in current working directory.
 
-In PowerShell, it is
+In PowerShell, it is `New-Item`
 
 ```powershell
 New-Item -ItemType file <filename>
 ```
 
-it can also be done by
+It can also be done by
 
 ```powershell
 $null > filename
@@ -44,13 +44,17 @@ $null > filename
 
 In fact, `cat` in PowerShell is `Get-Content`.
 
-It can also used to `head` and `tail`
+It can also used for `head` and `tail`.
 
-`Get-Content -TotalCount 10 <file>` == `head <file>`
+Examples:
 
-`Get-Content -Tail 10 <file>` == `tail <file>`
+```powershell
+Get-Content -TotalCount 10 <file> # head <file>
 
-`Get-Content -Tail 10 -Wait <file>` == `tail -f <file>`
+Get-Content -Tail 10 <file> # tail <file>
+
+Get-Content -Tail 10 -Wait <file> # tail -f <file>
+```
 
 ### for
 
@@ -58,7 +62,7 @@ Basic loop command,
 
 In PowerShell, the usages are
 
-#### classic - C style
+#### classical - C style
 
 ```powershell
 for(($i=5),($j=10) ; $i -eq $j ; ($i++), ($j--)){
@@ -70,7 +74,6 @@ for(($i=5),($j=10) ; $i -eq $j ; ($i++), ($j--)){
 #### functional - forEach
 
 ```powershell
-
 $arr = "Power!".ToCharArray()
 
 forEach ($c in $arr) {
@@ -82,7 +85,6 @@ forEach ($c in $arr) {
 
 # forEach Object can have multiple process and begin/end blocks
 "Power!".tochararray() | % {$i=1}{echo "$i $_"}{$i++}{echo "the end"}
-
 ```
 
 ### if-else
@@ -103,25 +105,23 @@ $msg = authorized?"Access":"Forbidden"
 
 ### grep
 
-`grep` is one of the most famous command in Shell for search text, it is short for `global search with regex and print`, originally a `ed`(whose successor is `sed`) command `g/re/p`.
+`grep` is one of the most famous command in Shell for search text, it is short for `global search with regex and then print`, originally a `ed`(whose successor is `sed`) command `g/re/p`.
 
-In PowerShell, they are
+In PowerShell, they are **`Select-String`** and **`Where`**
 
-#### Select-String
+```powershell
+# From pipeline:
 
-From pipeline:
+cmd | Select-String -Pattern <regex>
 
-`Select-String -Pattern <regex>`
+# From files:
 
-From files:
+cmd | Select-String -Path <wildcard> -Pattern <regex>
 
-`Select-String -Path <wildcard> -Pattern <regex>`
+# grep by object's properties
 
-#### Where
-
-grep by properties
-
-`Where <Property> -like "regex"`
+cmd | Where <Property> -like "regex"
+```
 
 > `?` is the alias to `Where-Object`
 
@@ -144,9 +144,7 @@ $res | ? {$_.LastWriteTime -gt $(Get-Date).AddDays(-1)}
 
 Although we have `<cmdlet> | more` in PowerShell, it can't display anything until cmdlet finished.
 
-so, for `less`, in PowerShell, it is
-
-`Out-Host -Paging`
+so, for `less`, in PowerShell, it is `Out-Host -Paging`
 
 ```powershell
 cat <large txt> | Out-Host -Paging
@@ -154,17 +152,19 @@ cat <large txt> | Out-Host -Paging
 
 ### xargs
 
-`xargs` convert output from pipeline to next command's parameter
+`xargs` convert output from pipeline to input for the next command
 
 In PowerShell, it usually achieve by a new way, `forEach-Object`. It can not only handle single output, but iterate array-like output.
 
+```powershell
 1,2,3 | %{ & "script path or scriptBlock" $_}
+```
 
-If you'd like to regard input as a whole array, wrap your array with an outside array, such as `,@(1,2,3)`
+> If you want to make the input as a whole array, wrap your array with an outside array, such as `,@(1,2,3)`
 
 ### watch
 
-`watch` repeats command and print the output for you periodically.
+`watch` repeats command periodically and print the output in the foreground for you.
 
 In PowerShell, Not easy to get it.
 
@@ -180,27 +180,27 @@ When you get familiar with `Function`, you can write a `watch` for yourself.
 
 man can print the manual of the command for you,
 
-In PowerShell, it is `Get-Help`
+In PowerShell, it is `Get-Help`.
 
-`Get-Help %`
+```powershell
+Get-Help %
 
-`Get-Help ?`
+Get-Help ?
+```
 
 ### command/which
 
-`command` and `which` can test command if is valid.
+`command` and `which` can test a command if is valid.
 
-In PowerShell, it is
+In PowerShell, it is `Get-Command`
 
-`Get-Command`
-
-`Get-Command ps`
+```powershell
+Get-Command ps
+```
 
 What's more, since all things are object in PowerShell.
 
-There should be a way to inspect an object. It is
-
-`Get-Member`
+There should be a way to inspect an object. It is `Get-Member`
 
 ### tee
 
