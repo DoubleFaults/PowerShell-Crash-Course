@@ -1,6 +1,6 @@
 # Powershell Crash Course
 
-Powershell is another flavor shell mostly used in Windows. Just because it is different, doesn't mean you can't master it as good as you do in Shell(either one).
+Powershell is another flavor shell mostly used in Windows. Just because it is different, doesn't mean you can't master it as well as you do in Shell(either one).
 
 This Course contains
 
