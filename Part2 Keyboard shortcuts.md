@@ -8,12 +8,12 @@ Before turn back to be a ninja, remember the equivalent shortcuts in Windows.
 
 | Function                   | Windows               | Linux Distribution      | macOS            |
 | -------------------------- | --------------------- | ----------------------- | ---------------- |
-| KEY                        | `Ctrl`, `Alt`, `⊞`, - | `Ctrl`, `Alt`, -, -     | `⌘`, `⌥`, -, `⌃` |
+| KEY                        | `Ctrl`, `Alt`, `⊞`, - | `Ctrl`, `Alt`, -, -     | `⌃`, `⌥`, `⌘`, fn |
 | Delete right               | `Delete`              | `Ctrl + d`              | `⌃d`             |
 | Head of line               | `Home`                | `Ctrl + a`(a for ahead) | `⌃a`             |
 | Tail of line               | `End`                 | `Ctrl + e`(e for end)   | `⌃e`             |
 | Move cursor by words       | `Ctrl + ←/→`          | `Ctrl + ←/→`            | `⌥←/⌥→`          |
-| Delete to the head of line | `Ctrl + Home`         | `Ctrl + u               | `⌃u`              |
+| Delete to the head of line | `Ctrl + Home`         | `Ctrl + u`              | `⌃u`              |
 | Delete a word              | `Ctrl + BackSpace`    | `Ctrl + w`              | `⌃w`             |
 
 ## Special in Windows Terminal
